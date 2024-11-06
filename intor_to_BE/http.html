@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="get">get</button> <br />
+    <button id="post">post</button> <br />
+     <button id="patch">patch</button> <br />
+    <button id="del">del</button> <br />
+
+
+    <script>
+        const getreq = document.querySelector("#get")
+
+        getreq.addEventListener('click', async function () {
+            const res = await fetch('https://dummyjson.com/posts/1', {method: "GET"})
+            console.log(res)
+        })
+
+
+        const postreq = document.querySelector("#post")
+
+        postreq.addEventListener('click', async function () {
+            const res = await fetch('https://dummyjson.com/posts/add', 
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    title: 'Hey Jude dont let me down',
+                    userId : 5,
+                }),
+                headers : {'Content-Type' : 'application/json'},
+
+            })
+            console.log(res)
+        })
+    </script>
+
+    
+</body>
+</html>
